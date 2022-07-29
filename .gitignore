@@ -1,4 +1,4 @@
 
 ###> composer
-/vendor/
-/.vscode/
+/vendor
+/.vscode
