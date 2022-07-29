@@ -1,0 +1,19 @@
+{
+    "name": "roanja/prueba-joseluis",
+    "description": "calcular tres progresiones geom\u0000tricas",
+    "type": "project",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Roanja\\Joseluis\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Romell Jaramillo",
+            "email": "romelljaramillo@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
