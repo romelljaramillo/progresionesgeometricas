@@ -41,16 +41,21 @@ class PrimerModule extends ModuleController implements ModuleInterface
      */
     public function printInfoData(): void
     {
-        $this->message('PARAMS');
+        $this->message('PARAMS', 'i');
         $this->message('- Init: ' . $this->valueInit);
         $this->message('- Razon: ' . $this->valueRazon);
         $this->message('- Max: ' . $this->valueMax);
         $this->ln();
     }
 
+    /**
+     * Ejecuta el calculo de los datos
+     *
+     * @return void
+     */
     public function getCalculations(): void
     {
-        $this->message('Results');
+        $this->message('Results', 's');
         $this->ln();
 
         $resp = $this->valueInit;

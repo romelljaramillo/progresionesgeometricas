@@ -26,18 +26,23 @@ class SegundoModule extends ModuleController implements ModuleInterface
      *
      * @return void
      */
-    public function printInfoData()
+    private function printInfoData()
     {
-        $this->message('PARAMS');
+        $this->message('PARAMS', 'i');
         $this->message('- Init: ' . $this->valueInit);
         $this->message('- Razon: ' . $this->valueRazon);
         $this->message('- Max: ' . $this->valueMax);
         $this->ln();
     }
 
-    public function getCalculations()
+    /**
+     * Ejecuta el calculo de los datos
+     *
+     * @return void
+     */
+    private function getCalculations()
     {
-        $this->message('Results');
+        $this->message('Results', 's');
         $this->ln();
 
         $resp = $this->valueInit;

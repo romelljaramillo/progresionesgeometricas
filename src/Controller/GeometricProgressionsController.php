@@ -23,7 +23,7 @@ class GeometricProgressionsController extends ModuleController
             $this->ln();
             $this->selectProcess();
         } else {
-            $this->message('There is no process to run');
+            $this->message('There is no process to run', 'i');
             exit;
         }
     }
@@ -71,14 +71,14 @@ class GeometricProgressionsController extends ModuleController
         $this->idProcess = (int)trim(fgets(STDIN));
         
         $this->ln();
-        $this->message('The selected option: ' . $this->idProcess);
+        $this->message('The selected option: ' . $this->idProcess, 'i');
         $this->ln();
         
         $cont = 0;
         
         while(!$this->validateSelectProcess($this->idProcess)){
             if($cont == 2){
-                $this->message('You have exceeded the number of attempts thanks', 'info');
+                $this->message('You have exceeded the number of attempts thanks', 'i');
                 exit;
             }
             $this->idProcess = (int)trim(fgets(STDIN));
@@ -98,13 +98,14 @@ class GeometricProgressionsController extends ModuleController
     public function validateSelectProcess(int $idProcess): bool
     {
         if(!is_numeric($idProcess)){
-            $this->message("The entered value is not correct, please try again", 'error');
+            $this->message("The entered value is not correct, please try again", 'e');
             return false;
         }
 
         $idProcess = $idProcess - 1;
+        
         if(!in_array($idProcess, array_keys ($this->process), true)) {
-            $this->message("The value is not in the list, try again", 'error');
+            $this->message("The value is not in the list, try again", 'e');
             return false;
         }
 

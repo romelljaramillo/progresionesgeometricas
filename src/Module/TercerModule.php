@@ -76,6 +76,12 @@ class TercerModule extends ModuleController implements ModuleInterface
         return $value;
     }
 
+    /**
+     * Valida el formato numérico diferente de 0
+     *
+     * @param float|null $value
+     * @return boolean
+     */
     private function validatedateFormat(float $value = null): bool
     {
         if(!is_numeric($value) || $value == 0) {
@@ -88,38 +94,27 @@ class TercerModule extends ModuleController implements ModuleInterface
     }
 
     /**
-     * Ejecuta el proceso seleccionado
-     *
-     * @return void
-     */
-    public function process(): void
-    {
-        parent::process();
-
-        $this->setValueInit();
-        $this->setValueRazon();
-        $this->setValueMax();
-        $this->printInfoData();
-        $this->getCalculations();
-    }
-
-    /**
      * Imprime en CLI values a procesar
      *
      * @return void
      */
-    public function printInfoData(): void
+    private function printInfoData(): void
     {
-        $this->message('PARAMS');
+        $this->message('PARAMS', 'i');
         $this->message('- Init: ' . $this->valueInit);
         $this->message('- Razon: ' . $this->valueRazon);
         $this->message('- Max: ' . $this->valueMax);
         $this->ln();
     }
 
-    public function getCalculations(): void
+    /**
+     * Ejecuta el calculo de los datos
+     *
+     * @return void
+     */
+    private function getCalculations(): void
     {
-        $this->message('Results');
+        $this->message('Results', 's');
         $this->ln();
 
         $resp = $this->valueInit;
@@ -135,5 +130,19 @@ class TercerModule extends ModuleController implements ModuleInterface
         }
     }
     
+    /**
+     * Ejecuta el proceso seleccionado
+     *
+     * @return void
+     */
+    public function process(): void
+    {
+        parent::process();
 
+        $this->setValueInit();
+        $this->setValueRazon();
+        $this->setValueMax();
+        $this->printInfoData();
+        $this->getCalculations();
+    }
 }
