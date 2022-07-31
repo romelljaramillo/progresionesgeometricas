@@ -27,7 +27,7 @@ class TercerModule extends ModuleController implements ModuleInterface
     private function setValueInit(): void
     {
 
-        $this->message('enter the initial term in numeric format');
+        $this->message('enter the initial term in numeric format', 'i');
         $this->valueInit = $this->enterValueFloat();
     }
 
@@ -38,7 +38,7 @@ class TercerModule extends ModuleController implements ModuleInterface
      */
     private function setValueMax(): void
     {
-        $this->message('enter the maximum value to process in numeric format');
+        $this->message('enter the maximum value to process in numeric format', 'i');
         $this->valueMax = $this->enterValueFloat();
     }
 
@@ -49,7 +49,7 @@ class TercerModule extends ModuleController implements ModuleInterface
      */
     private function setValueRazon(): void
     {
-        $this->message('enter the value of the reason to process in numeric format');
+        $this->message('enter the value of the reason to process in numeric format', 'i');
         $this->valueRazon = $this->enterValueFloat();
     }
 
@@ -142,6 +142,7 @@ class TercerModule extends ModuleController implements ModuleInterface
         $this->setValueInit();
         $this->setValueRazon();
         $this->setValueMax();
+        $this->ln();
         $this->printInfoData();
         $this->getCalculations();
     }
