@@ -11,11 +11,8 @@ if (PHP_SAPI == 'cli'){
     echo $out;
 
     $app = new Roanja\Joseluis\Controller\GeometricProgressionsController();
-    $app->init(new Roanja\Joseluis\Controller\PrimeraController);
-    $app->init(new Roanja\Joseluis\Controller\SegundaController);
-    $app->init(new Roanja\Joseluis\Controller\TerceraController);
 
-    $app->selectProcess();
+    $app->init();
 
 } else {
     echo 'Aplicación de uso en php CLI';
