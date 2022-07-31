@@ -6,7 +6,12 @@
 - composer install
 ``` 
 
-## Run
+## Run dump-autoload
+```
+- composer dump-autoload
+``` 
+
+## Run CLI
 
 ```
 - php index.php
